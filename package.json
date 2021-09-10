@@ -1,0 +1,33 @@
+{
+  "name": "backend-coding-test",
+  "version": "1.0.0",
+  "description": "A coding assessment for Xendit backend interviews",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha tests",
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
+  },
+  "keywords": [
+    "Xendit"
+  ],
+  "author": "Bo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "expect.js": "^0.3.1",
+    "express": "^4.16.4",
+    "joi": "^17.4.2",
+    "sqlite3": "^4.0.6",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "mocha": "^6.1.4",
+    "nodemon": "^2.0.12",
+    "supertest": "^4.0.2"
+  }
+}

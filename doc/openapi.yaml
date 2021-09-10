@@ -1,0 +1,96 @@
+openapi: "3.0.0"
+info:
+  title: Backend test simple API
+  version: 0.0.1
+paths:
+  /health:
+    get:
+      summary: List API versions
+      responses:
+        '200':
+          description: |-
+            200 response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Healthy
+        
+  /rides:
+    post:
+      summary: Save a new ride  
+      responses:
+        '200':
+          description: Added ride
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ride'
+    get:
+      summary: Query some ride
+      parameters:
+        - in: query
+          name: limit
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Some Rides
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ride'
+                  
+  /rides/{id}:
+    get:
+      summary: Query a ride
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A Ride
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ride'          
+                
+components:
+  schemas:
+    Ride:
+      type: object
+      properties:
+        start_lat:
+          type: number
+          example: 1
+        start_long:
+          type: number
+          example: 2
+        end_lat:
+          type: number
+          example: -3
+        end_long:
+          type: number
+          example: -4
+        rider_name:
+          type: string
+          example: some-name
+        driver_name:
+          type: string
+          example: some-driver
+        driver_vehicle:
+          type: string
+          example: super-car
